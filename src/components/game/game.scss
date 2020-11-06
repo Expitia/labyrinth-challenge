@@ -1,0 +1,102 @@
+@import "./../../mixins.scss";
+.table {
+  @include table-container;
+  outline: none !important;
+  &:not(:focus)::after {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    color: white;
+    overflow: hidden;
+    font-size: 1.2rem;
+    position: absolute;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    content: "Click here to continue...";
+  }
+  .row {
+    @include row;
+    .cell {
+      &.cell-full {
+        &.world-0 {
+          background-image: url("./images/wall.png");
+        }
+        &.world-1 {
+          background-image: url("./images1/wall.png");
+        }
+        &.world-2 {
+          background-image: url("./images2/wall.png");
+        }
+      }
+      &.cell-empty {
+        &.world-0 {
+          background-image: url("./images/floor.png");
+        }
+        &.world-1 {
+          background-image: url("./images1/floor.png");
+        }
+        &.world-2 {
+          background-image: url("./images2/floor.png");
+        }
+      }
+      &.cell-end {
+        &.world-0 {
+          background-image: url("./images/destiny.png");
+        }
+        &.world-1 {
+          background-image: url("./images1/destiny.png");
+        }
+        &.world-2 {
+          background-image: url("./images2/destiny.png");
+        }
+      }
+      &.cell-start {
+        &.world-0 {
+          background-image: url("./images/start.png");
+        }
+        &.world-1 {
+          background-image: url("./images1/start.png");
+        }
+        &.world-2 {
+          background-image: url("./images2/start.png");
+        }
+      }
+    }
+  }
+  .player {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    transition: 0.5s linear;
+    transform: translate(calc(var(--column) * 35px), calc(var(--row) * 35px));
+
+    &::after {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      content: "";
+      position: absolute;
+      animation: run 1s linear infinite;
+      background-image: url("./images/player.png");
+      background-position-x: calc(var(--frame) * -1 * 30px);
+      background-position-y: calc(var(--direction) * -1 * 30px);
+    }
+  }
+}
+
+@keyframes run {
+  0% {
+    --frame: 0;
+  }
+  50% {
+    --frame: 1;
+  }
+  100% {
+    --frame: 2;
+  }
+}

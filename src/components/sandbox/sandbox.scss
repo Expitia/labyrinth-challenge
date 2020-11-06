@@ -1,0 +1,36 @@
+@import "./../../mixins.scss";
+.sandbox {
+  @include table-container;
+  .row {
+    @include row;
+    .cell {
+      &-full {
+        background-image: url("./images/wall.png");
+      }
+      &-empty {
+        background-image: url("./images/floor.png");
+      }
+      &-end {
+        background-image: url("./images/destiny.png");
+      }
+      &-start {
+        background-image: url("./images/start.png");
+      }
+    }
+  }
+
+  .react-contextmenu {
+    font-size: 0.8rem;
+    background: white;
+    border: 1px solid #555;
+
+    &-item {
+      padding: 5px;
+      cursor: pointer;
+      &:hover {
+        color: white;
+        background-color: #555;
+      }
+    }
+  }
+}

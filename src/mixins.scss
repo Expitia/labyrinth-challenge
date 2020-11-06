@@ -1,0 +1,17 @@
+@mixin table-container() {
+  margin: auto;
+  margin-top: 80px;
+  width: fit-content;
+  position: relative;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+@mixin row() {
+  display: flex;
+  .cell {
+    width: 35px;
+    height: 35px;
+    background-size: 35px;
+    background-position: 50% 50%;
+  }
+}
